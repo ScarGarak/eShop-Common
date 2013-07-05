@@ -17,6 +17,7 @@ import shop.common.exceptions.WarenkorbIstLeerException;
 import shop.common.valueobjects.Artikel;
 import shop.common.valueobjects.Kunde;
 import shop.common.valueobjects.Mitarbeiter;
+import shop.common.valueobjects.MitarbeiterFunktion;
 import shop.common.valueobjects.Person;
 import shop.common.valueobjects.Rechnung;
 import shop.common.valueobjects.WarenkorbArtikel;
@@ -31,7 +32,7 @@ public interface ShopInterface {
 	
 	public abstract Artikel gibArtikel(int artikelnummer) throws ArtikelExistiertNichtException;
 	
-	public abstract void artikelBestandErhoehen(Mitarbeiter mitarbeiter, int artikelnummer, int anzahl) throws ArtikelExistiertNichtException, IOException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	public abstract void artikelBestandVeraendern(Mitarbeiter mitarbeiter, int artikelnummer, int anzahl) throws ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException; 
 	
 	public abstract List<Artikel> gibAlleArtikelSortiertNachArtikelnummer();
 	
@@ -41,7 +42,9 @@ public interface ShopInterface {
 	
 	public abstract List<Artikel> sucheArtikel(String bezeichnung);
 	
-	public abstract void entferneArtikel(Mitarbeiter mitarbeiter, int artikelnummer) throws ArtikelExistiertNichtException;
+	public abstract void artikelBearbeiten(int artikelnummer, double preis, String bezeichnung) throws ArtikelExistiertNichtException;
+	
+	public abstract void entferneArtikel(Mitarbeiter mitarbeiter, int artikelnummer) throws ArtikelExistiertNichtException, IOException;
 
 	/**
 	 * Methode zum Speichern des Artikelbestands in einer Datei.
@@ -75,18 +78,29 @@ public interface ShopInterface {
 	/**
 	 * Diese Methode bildet eine neue Mitarbeiter Instanz und fŸgt sie
 	 * zur Mitarbeiterverwaltung hinzu.
-	 * @param id Id des neuen Mitarbeiters
 	 * @param name Name des neuen Mitarbeiters
 	 * @throws MitarbeiterExistiertBereitsException
 	 * @throws UsernameExistiertBereitsException 
 	 */
-	public abstract void fuegeMitarbeiterHinzu(int id, String username, String passwort, String name) throws MitarbeiterExistiertBereitsException, UsernameExistiertBereitsException;
+	public abstract void fuegeMitarbeiterHinzu(String username, String passwort, String name, MitarbeiterFunktion funktion, double gehalt) throws MitarbeiterExistiertBereitsException, UsernameExistiertBereitsException;
 
 	/**
 	 * Diese Methode schreibt alle Mitarbeiterdaten in die Datenquelle.
 	 * @throws IOException
 	 */
 	public abstract void schreibeMitarbeiter() throws IOException;
+	
+	/**
+	 * Diese Methode ist zum bearbeiten von Mitarbeitern.
+	 * @param id
+	 * @param passwort
+	 * @param name
+	 * @param funktion
+	 * @param gehalt
+	 * @param blockiert
+	 * @throws MitarbeiterExistiertNichtException
+	 */
+	public abstract void mitarbeiterBearbeiten(int id, String passwort, String name, MitarbeiterFunktion funktion, double gehalt, boolean blockiert) throws MitarbeiterExistiertNichtException;
 	
 	/**
 	 * Diese Methode iteriert zuerst durch die Mitarbeiterliste und dann durch die Kundenliste und 
@@ -121,14 +135,26 @@ public interface ShopInterface {
 	public abstract void kundenLoeschen(Kunde k);
 
 	/**
+	 * Diese Methode ist zum bearbeiten einer Kunden Instanz zustaendig.
+	 * @param id
+	 * @param passwort
+	 * @param name
+	 * @param strasse
+	 * @param plz
+	 * @param wohnort
+	 * @param blockiert
+	 * @throws KundeExistiertNichtException
+	 */
+	public abstract void kundenBearbeiten(int id, String passwort, String name, String strasse, int plz, String wohnort, boolean blockiert) throws KundeExistiertNichtException;
+	
+	/**
 	 * Diese Methode bidet eine neue Kunden Instanz und fuegt sie
 	 * zur Kundenverwaltung hinzu.
-	 * @param id Id des neuen Kunden
 	 * @param name Name des neuen Kunden
 	 * @throws KundeExistiertBereitsException
 	 * @throws UsernameExistiertBereitsException 
 	 */
-	public abstract void fuegeKundenHinzu(int id, String username, String passwort, String name, String strasse, int plz, String wohnort) throws KundeExistiertBereitsException, UsernameExistiertBereitsException;
+	public abstract void fuegeKundenHinzu(String username, String passwort, String name, String strasse, int plz, String wohnort) throws KundeExistiertBereitsException, UsernameExistiertBereitsException;
 
 	/**
  	* Diese Methode ermoeglicht es den "schreibe" befehl der KundenVerwaltung zu triggern.
@@ -145,6 +171,8 @@ public interface ShopInterface {
 	public abstract Rechnung kaufen(Kunde kunde) throws IOException, WarenkorbIstLeerException;
 	
 	public abstract void leeren(Kunde k) throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	
+	public abstract Kunde loginVergessen(String name, String strasse, int zip, String wohnort);
 	
 	/**
 	 * Methode zur überprüfung des Logins auf basis des Usernamens und des Passwortes
