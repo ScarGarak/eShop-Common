@@ -14,6 +14,15 @@ public class ArtikelBestandIstKeineVielfacheDerPackungsgroesseException extends 
 	/**
 	 * Konstruktor
 	 * 
+	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
+	 */
+	public ArtikelBestandIstKeineVielfacheDerPackungsgroesseException(String zusatzMsg) {
+		super("Der Bestand ist keine Vielfache der Packungsgröße" + zusatzMsg);
+	}
+	
+	/**
+	 * Konstruktor
+	 * 
 	 * @param artikel Der Massengutartikel mit dem falschen Bestand
 	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
 	 */

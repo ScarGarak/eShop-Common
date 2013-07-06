@@ -15,6 +15,15 @@ public class ArtikelExistiertNichtException extends Exception {
 	/**
 	 * Konstruktor
 	 * 
+	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
+	 */
+	public ArtikelExistiertNichtException(String zusatzMsg) {
+		super("Der Artikel existiert nicht" + zusatzMsg);
+	}
+	
+	/**
+	 * Konstruktor
+	 * 
 	 * @param artikel Der nicht existierende Artikel
 	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
 	 */
