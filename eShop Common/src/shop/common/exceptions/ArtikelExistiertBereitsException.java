@@ -15,6 +15,15 @@ public class ArtikelExistiertBereitsException extends Exception {
 	/**
 	 * Konstruktor
 	 * 
+	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
+	 */
+	public ArtikelExistiertBereitsException(String zusatzMsg) {
+		super("Artikel existiert bereits" + zusatzMsg);
+	}
+	
+	/**
+	 * Konstruktor
+	 * 
 	 * @param artikel Der bereits existierende Artikel
 	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
 	 */

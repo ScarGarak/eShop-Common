@@ -24,13 +24,11 @@ import shop.common.valueobjects.WarenkorbArtikel;
 
 public interface ShopInterface {
 
-	// Artikel Methoden
+	// Artikel-Methoden
 	
 	public abstract void fuegeArtikelEin(Mitarbeiter mitarbeiter, int artikelnummer, String bezeichnung, double preis, int bestand) throws ArtikelExistiertBereitsException;
 	
 	public abstract void fuegeMassengutartikelEin(Mitarbeiter mitarbeiter, int artikelnummer, String bezeichnung, double preis, int packungsgroesse, int bestand) throws ArtikelExistiertBereitsException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
-	
-	public abstract Artikel gibArtikel(int artikelnummer) throws ArtikelExistiertNichtException;
 	
 	public abstract void artikelBestandVeraendern(Mitarbeiter mitarbeiter, int artikelnummer, int anzahl) throws ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException; 
 	
@@ -53,7 +51,7 @@ public interface ShopInterface {
 	 */
 	public abstract void schreibeArtikel() throws IOException;
 	
-	// Mitarbeiter Methoden
+	// Mitarbeiter-Methoden
 	
 	/**
 	 * Diese Methode ermšglicht es einen Mitarbeiter nach seiner ID
@@ -102,8 +100,8 @@ public interface ShopInterface {
 	 */
 	public abstract void mitarbeiterBearbeiten(int id, String passwort, String name, MitarbeiterFunktion funktion, double gehalt, boolean blockiert) throws MitarbeiterExistiertNichtException;
 	
-	// Kunden Methoden
-	
+	// Kunden-Methoden
+
 	/**
 	* Diese Methode ermoeglicht es einen Kunden nach seiner ID
 	* zu suchen.
@@ -152,17 +150,23 @@ public interface ShopInterface {
  	*/
 	public abstract void schreibeKunden() throws IOException;
 	
-	public abstract void inDenWarenkorbLegen(Kunde kunde, Artikel artikel, int stueckzahl) throws ArtikelBestandIstZuKleinException, ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	// Warenkorb-Methoden
 	
-	public abstract void ausDemWarenkorbHerausnehmen(Kunde kunde, Artikel artikel) throws ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	public abstract List<WarenkorbArtikel> gibWarenkorb(Kunde kunde); 
 	
-	public abstract void stueckzahlAendern(Kunde kunde, WarenkorbArtikel warenkorbArtikel, int neueStueckzahl) throws ArtikelBestandIstZuKleinException, ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	public abstract void inDenWarenkorbLegen(Kunde kunde, int artikelnummer, int stueckzahl) throws ArtikelBestandIstZuKleinException, ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	
+	public abstract void ausDemWarenkorbHerausnehmen(Kunde kunde, int artikelnummer) throws ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	
+	public abstract void stueckzahlAendern(Kunde kunde, int warenkorbArtikelnummer, int neueStueckzahl) throws ArtikelBestandIstZuKleinException, ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 	
 	public abstract Rechnung kaufen(Kunde kunde) throws IOException, WarenkorbIstLeerException;
 	
-	public abstract void leeren(Kunde k) throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
+	public abstract void leeren(Kunde kunde) throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 	
-	public abstract Kunde loginVergessen(String name, String strasse, int zip, String wohnort);
+	// Login-Methoden
+	
+	public abstract Kunde loginVergessen(String name, String strasse, int plz, String wohnort);
 	
 	/**
 	 * Methode zur überprüfung des Logins auf basis des Usernamens und des Passwortes

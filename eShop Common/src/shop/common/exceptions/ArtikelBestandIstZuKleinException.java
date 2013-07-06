@@ -15,6 +15,15 @@ public class ArtikelBestandIstZuKleinException extends Exception {
 	/**
 	 * Konstruktor
 	 * 
+	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
+	 */
+	public ArtikelBestandIstZuKleinException(String zusatzMsg) {
+		super("Der Bestand ist zu klein oder leer" + zusatzMsg);
+	}
+	
+	/**
+	 * Konstruktor
+	 * 
 	 * @param artikel Der Artikel mit dem zu kleinen oder leeren Bestand
 	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
 	 */
