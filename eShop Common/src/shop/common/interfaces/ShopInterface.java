@@ -102,16 +102,6 @@ public interface ShopInterface {
 	 */
 	public abstract void mitarbeiterBearbeiten(int id, String passwort, String name, MitarbeiterFunktion funktion, double gehalt, boolean blockiert) throws MitarbeiterExistiertNichtException;
 	
-	/**
-	 * Diese Methode iteriert zuerst durch die Mitarbeiterliste und dann durch die Kundenliste und 
-	 * vergleicht die Usernamen.
-	 * Beim ersten Treffer wird eine UsernameExistiertBereitsException geworfen.
-	 * @param username Username für die neue Person.
-	 * @param zusatzMsg Zusätliche Informationen.
-	 * @throws UsernameExistiertBereitsException
-	 */
-	public abstract void existiertUsernameSchon(String username, String zusatzMsg) throws UsernameExistiertBereitsException;
-	
 	// Kunden Methoden
 	
 	/**
