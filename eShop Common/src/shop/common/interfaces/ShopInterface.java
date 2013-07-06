@@ -180,9 +180,9 @@ public interface ShopInterface {
 	
 	public abstract void schreibeEreignisse() throws IOException;
 	
-	public abstract String gibBestandsHistorie(Artikel artikel) throws IOException;
+	public abstract String gibBestandsHistorie(int artikelnumme) throws IOException;
 	
-	public abstract int[] gibBestandsHistorieDaten(Artikel artikel) throws IOException;
+	public abstract int[] gibBestandsHistorieDaten(int artikelnummer) throws IOException;
 	
 	public abstract String gibLogDatei() throws IOException;
 	
