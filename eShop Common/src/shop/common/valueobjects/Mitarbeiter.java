@@ -6,9 +6,7 @@ package shop.common.valueobjects;
  * und erbt von der Super-Klasse Person.
  * 
  * @author Migliosi Angelo
- * @version 1
  * 
- * Zuletzt editiert: 18.05.2013
  */
 public class Mitarbeiter extends Person{
 	
@@ -19,7 +17,7 @@ public class Mitarbeiter extends Person{
 	private MitarbeiterFunktion funktion;
 	
 	/**
-	 * Konstruktor
+	 * Konstruktor von Mitarbeiter
 	 * @param id Id des Mitarbeiters
 	 * @param username Username des Mitarbeiters
 	 * @param passwort Passwort des Mitarbeiters

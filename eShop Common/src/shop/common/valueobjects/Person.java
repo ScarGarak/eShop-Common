@@ -2,6 +2,12 @@ package shop.common.valueobjects;
 
 import java.io.Serializable;
 
+/**
+ * Diese Methode enthaelt alle Attribute mit dessen Set- und Get-Methoden, die gleichzeitig
+ * fuer Kunde und Mitarbeiter benoetigt werden.
+ * @author Migliosi Angelo, Oliver Thummerer
+ *
+ */
 @SuppressWarnings("serial")
 public abstract class Person implements Serializable{
 
@@ -13,7 +19,7 @@ public abstract class Person implements Serializable{
 	private boolean blockiert;
 	
 	/**
-	 * Konstruktor
+	 * Konstruktor von Person.
 	 * @param id Id der Person.
 	 * @param username Username der Person.
 	 * @param passwort Passwort der Person.
