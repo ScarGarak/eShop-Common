@@ -30,6 +30,15 @@ public interface ShopInterface {
 	
 	public abstract void fuegeMassengutartikelEin(Mitarbeiter mitarbeiter, int artikelnummer, String bezeichnung, double preis, int packungsgroesse, int bestand) throws ArtikelExistiertBereitsException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 	
+	/**
+	 * Methode zum verändern des Bestands eines Artikels.
+	 * 
+	 * @param mitarbeiter Mitarbeiter der den Bestand eines Artikels verändern will
+	 * @param artikelnummer Artikelnummer des zu verändernden Artikels
+	 * @param anzahl Anzahl des neuen Bestands
+	 * @throws ArtikelExistiertNichtException
+	 * @throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException
+	*/
 	public abstract void artikelBestandVeraendern(Mitarbeiter mitarbeiter, int artikelnummer, int anzahl) throws ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException; 
 	
 	public abstract List<Artikel> gibAlleArtikelSortiertNachArtikelnummer();
@@ -40,8 +49,24 @@ public interface ShopInterface {
 	
 	public abstract List<Artikel> sucheArtikel(String bezeichnung);
 	
+	/**
+	 * Methode zum bearbeiten eines Artikels.
+	 * 
+	 * @param artikelnumme Artikelnummer des Artikels
+	 * @param preis Preis des Artikels
+	 * @param bezeichnung Bezeichnung des Artikels
+	 * @throws ArtikelExistiertNichtException
+	*/
 	public abstract void artikelBearbeiten(int artikelnummer, double preis, String bezeichnung) throws ArtikelExistiertNichtException;
 	
+	/**
+ 	 * Methode zum Entfernen eines Artikels aus dem Bestand.
+	 * 
+	 * @param mitarbeiter Mitarbeiter der den Artikel aus dem Bestand entfernen will
+	 * @param artikelnummer Artikelnummer des zu entfernenden Artikels
+	 * @throws ArtikelExistiertNichtException
+	 * @throws IOException
+ 	 */
 	public abstract void entferneArtikel(Mitarbeiter mitarbeiter, int artikelnummer) throws ArtikelExistiertNichtException, IOException;
 
 	/**
@@ -178,10 +203,27 @@ public interface ShopInterface {
 	
 	// Ereignis Methoden
 	
+	/**
+	 * Speichert alle Ereignisse.
+	 * @throws IOException
+	 */
 	public abstract void schreibeEreignisse() throws IOException;
 	
+	/**
+	 * Diese Methode gibt ein Integer Array von 30 Zahlen zurueck, die die Bestaende der letzten 30 Tage
+	 * des Artikels mit der angegebenen Artikelnummer repräsentieren.
+	 * @param artikelnummer
+	 * @return Die Bestaende der letzten 30 Tage
+	 * @throws IOException
+	 * @throws ArtikelExistiertNichtException
+	 */
 	public abstract int[] gibBestandsHistorieDaten(int artikelnummer) throws IOException, ArtikelExistiertNichtException;
 	
+	/**
+	 * Diese Methode liest die gesamte Logdatei und gibt sie als ein String zurueck.
+	 * @return
+	 * @throws IOException
+	 */
 	public abstract String gibLogDatei() throws IOException;
 	
 	/**
