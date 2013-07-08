@@ -5,7 +5,6 @@ package shop.common.exceptions;
  * (z.B. beim Kaufen).
  * 
  * @author Christof Ferreira Torres
- * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class WarenkorbIstLeerException extends Exception {

@@ -7,7 +7,6 @@ import shop.common.valueobjects.Artikel;
  * (z.B. bei einem Lšschvorgang).
  * 
  * @author Christof Ferreira Torres
- * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class ArtikelExistiertNichtException extends Exception {
