@@ -7,7 +7,7 @@ import java.util.Locale;
 import shop.common.exceptions.ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 
 /**
- * Klasse zur Repräsentation einzelner Artikel.
+ * Klasse zur Repraesentation einzelner Artikel.
  * 
  * @author Christof Ferreira Torres
  */

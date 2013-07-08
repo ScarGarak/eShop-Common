@@ -3,7 +3,7 @@ package shop.common.valueobjects;
 import shop.common.exceptions.ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 
 /**
- * Klasse zur Repräsentation von Massengutartikeln.
+ * Klasse zur Repraesentation von Massengutartikeln.
  * 
  * @author Christof Ferreira Torres
  */
@@ -32,7 +32,7 @@ public class Massengutartikel extends Artikel {
 	}
 	
 	public String toString() {
-		return (super.toString() + "\t Packungsgröße: " + packungsgroesse);
+		return (super.toString() + "\t Packungsgroesse: " + packungsgroesse);
 	}
 	
 	public boolean equals(Object andererArtikel) {
