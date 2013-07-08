@@ -7,7 +7,6 @@ import shop.common.valueobjects.Artikel;
  * (z.B. beim ändern der Stückzahl eines Artikel in einem Warenkorb).
  * 
  * @author Christof Ferreira Torres
- * @version 1.0.0
  */
 @SuppressWarnings("serial")
 public class ArtikelBestandIstZuKleinException extends Exception {
