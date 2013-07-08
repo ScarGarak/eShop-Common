@@ -4,7 +4,7 @@ import java.util.Currency;
 import java.util.Locale;
 
 /**
- * Klasse zur Repräsentation einzelner Warenkorb Artikel.
+ * Klasse zur Repraesentation einzelner Warenkorb Artikel.
  * 
  * @author Christof Ferreira Torres
  */

@@ -13,7 +13,7 @@ public class WarenkorbIstLeerException extends Exception {
 	 * Konstruktor
 	 * 
 	 * @param artikel Der Artikel mit dem zu kleinen oder leeren Bestand
-	 * @param zusatzMsg zusätzlicher Text für die Fehlermeldung
+	 * @param zusatzMsg zusaetzlicher Text fuer die Fehlermeldung
 	 */
 	public WarenkorbIstLeerException(String zusatzMsg) {
 		super("Der Warenkorb ist leer" + zusatzMsg);

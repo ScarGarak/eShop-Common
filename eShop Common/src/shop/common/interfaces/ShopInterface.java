@@ -27,10 +27,10 @@ public interface ShopInterface {
 	// Artikel-Methoden
 	
 	/**
-	 * Methode zum Einfügen eines neuen Artikels in den Bestand. 
-	 * Wenn der Artikel bereits im Bestand ist, wird der Bestand nicht geändert.
+	 * Methode zum Einfuegen eines neuen Artikels in den Bestand. 
+	 * Wenn der Artikel bereits im Bestand ist, wird der Bestand nicht geaendert.
 	 * 
-	 * @param mitarbeiter Mitarbeiter der den Artikel in den Bestand einfügen will
+	 * @param mitarbeiter Mitarbeiter der den Artikel in den Bestand einfuegen will
 	 * @param artikelnummer Artikelnummer des neuen Artikels
 	 * @param bezeichnung Bezeichnung des neuen Artikels
 	 * @param preis Preis des neuen Artikels
@@ -40,14 +40,14 @@ public interface ShopInterface {
 	public abstract void fuegeArtikelEin(Mitarbeiter mitarbeiter, int artikelnummer, String bezeichnung, double preis, int bestand) throws ArtikelExistiertBereitsException;
 	
 	/**
-	 * Methode zum Einfügen eines neuen Massengutartikels in den Bestand. 
-	 * Wenn der Massengutartikel bereits im Bestand ist, wird der Bestand nicht geändert.
+	 * Methode zum Einfuegen eines neuen Massengutartikels in den Bestand. 
+	 * Wenn der Massengutartikel bereits im Bestand ist, wird der Bestand nicht geaendert.
 	 * 
-	 * @param mitarbeiter Mitarbeiter der den Massengutartikel in den Bestand einfügen will
+	 * @param mitarbeiter Mitarbeiter der den Massengutartikel in den Bestand einfuegen will
 	 * @param artikelnummer Artikelnummer des neuen Massengutartikels
 	 * @param bezeichnung Bezeichnung des neuen Massengutartikels
 	 * @param preis Preis des neuen Massengutartikels
-	 * @param packungsgroesse Packungsgröße des neuen Massengutartikels
+	 * @param packungsgroesse Packungsgroesse des neuen Massengutartikels
 	 * @param bestand Bestand des neuen Massengutartikels
 	 * @throws ArtikelExistiertBereitsException
 	 * @throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException
@@ -55,10 +55,10 @@ public interface ShopInterface {
 	public abstract void fuegeMassengutartikelEin(Mitarbeiter mitarbeiter, int artikelnummer, String bezeichnung, double preis, int packungsgroesse, int bestand) throws ArtikelExistiertBereitsException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 	
 	/**
-	 * Methode zum verändern des Bestands eines Artikels.
+	 * Methode zum veraendern des Bestands eines Artikels.
 	 * 
-	 * @param mitarbeiter Mitarbeiter der den Bestand eines Artikels verändern will
-	 * @param artikelnummer Artikelnummer des zu verändernden Artikels
+	 * @param mitarbeiter Mitarbeiter der den Bestand eines Artikels veraendern will
+	 * @param artikelnummer Artikelnummer des zu veraendernden Artikels
 	 * @param anzahl Anzahl des neuen Bestands
 	 * @throws ArtikelExistiertNichtException
 	 * @throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException
@@ -67,7 +67,7 @@ public interface ShopInterface {
 	
 	/**
 	 * Methode, die eine Liste aller im Bestand befindlichen Artikel, 
-	 * nach ihrer Artikelnummer sortiert, zurückgibt.
+	 * nach ihrer Artikelnummer sortiert, zurueckgibt.
 	 * 
 	 * @return Liste aller Artikel sortiert nach Artikelnummer
 	 */
@@ -75,7 +75,7 @@ public interface ShopInterface {
 	
 	/**
 	 * Methode, die eine Liste aller im Bestand befindlichen Artikel, 
-	 * nach ihrer Bezeichnung sortiert, zurückgibt.
+	 * nach ihrer Bezeichnung sortiert, zurueckgibt.
 	 * 
 	 * @return Liste aller Artikel sortiert nach Bezeichnung
 	 */
@@ -83,7 +83,7 @@ public interface ShopInterface {
 	
 	/**
 	 * Methode zum Suchen von Artikeln anhand der Artikelnummer. Es wird eine Liste von Artikeln
-	 * zurückgegeben, die alle Artikel die Artikelnummer enthalten.
+	 * zurueckgegeben, die alle Artikel die Artikelnummer enthalten.
 	 * 
 	 * @param artikelnummer Artikelnummer des gesuchten Artikels
 	 * @return Liste der gefundenen Artikel (evtl. leer)
@@ -92,7 +92,7 @@ public interface ShopInterface {
 	
 	/**
 	 * Methode zum Suchen von Artikeln anhand der Bezeichnung. Es wird eine Liste von Artikeln
-	 * zurückgegeben, die alle Artikel die Bezeichnung enthalten.
+	 * zurueckgegeben, die alle Artikel die Bezeichnung enthalten.
 	 * 
 	 * @param bezeichnung Bezeichnung des gesuchten Artikels
 	 * @return Liste der gefundenen Artikel (evtl. leer)
@@ -129,27 +129,27 @@ public interface ShopInterface {
 	// Mitarbeiter-Methoden
 	
 	/**
-	 * Diese Methode ermöglicht es einen Mitarbeiter nach seiner ID
+	 * Diese Methode ermoeglicht es einen Mitarbeiter nach seiner ID
 	 * zu suchen.
-	 * @param id ID der Mitarbeiter Instanz, die man suchen möchte
+	 * @param id ID der Mitarbeiter Instanz, die man suchen moechte
 	 * @return Die Mitarbeiter Instanz mit der gegebenen ID.
 	 */
 	public abstract Mitarbeiter sucheMitarbeiter(int id) throws MitarbeiterExistiertNichtException;
 
 	/**
-	 * Diese Methode ermöglicht es um die Mitarbeiterliste einzusehen.
+	 * Diese Methode ermoeglicht es um die Mitarbeiterliste einzusehen.
 	 * @return Vector mit allen aktuellen Mitarbeiter Instanzen.
 	 */
 	public abstract Vector<Mitarbeiter> gibAlleMitarbeiter();
 
 	/**
-	 * Diese Methode ermöglicht es eine Mitarbeiter Instanz zu löschen.
-	 * @param m Mitarbeiter Instanz zum löschen.
+	 * Diese Methode ermoeglicht es eine Mitarbeiter Instanz zu loeschen.
+	 * @param m Mitarbeiter Instanz zum loeschen.
 	 */
 	public abstract void mitarbeiterLoeschen(Mitarbeiter m);
 
 	/**
-	 * Diese Methode bildet eine neue Mitarbeiter Instanz und fügt sie
+	 * Diese Methode bildet eine neue Mitarbeiter Instanz und fuegt sie
 	 * zur Mitarbeiterverwaltung hinzu.
 	 * @param name Name des neuen Mitarbeiters
 	 * @throws MitarbeiterExistiertBereitsException
@@ -228,7 +228,7 @@ public interface ShopInterface {
 	// Warenkorb-Methoden
 	
 	/**
-	 * Methode, die eine Liste aller im Warenkorb befindlichen Artikel zurückgibt.
+	 * Methode, die eine Liste aller im Warenkorb befindlichen Artikel zurueckgibt.
 	 * 
 	 * @return Liste aller Warenkorb Artikel des Kunden
 	 */
@@ -239,7 +239,7 @@ public interface ShopInterface {
 	 * 
 	 * @param kunde Kunde der den Artikel in seinen Warenkorb legen will
 	 * @param artikelnummer Artikelnummer des Artikels der in den Warenkorb zu legen ist
-	 * @param stueckzahl Stückzahl des Artikels
+	 * @param stueckzahl Stueckzahl des Artikels
 	 * @throws ArtikelBestandIstZuKleinException
 	 * @throws ArtikelExistiertNichtException
 	 * @throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException
@@ -257,11 +257,11 @@ public interface ShopInterface {
 	public abstract void ausDemWarenkorbHerausnehmen(Kunde kunde, int artikelnummer) throws ArtikelExistiertNichtException, ArtikelBestandIstKeineVielfacheDerPackungsgroesseException;
 	
 	/**
-	 * Methode um die Stückzahl eines Warenkorb Artikels im Warenkorb eines Kunden zu ändern.
+	 * Methode um die Stueckzahl eines Warenkorb Artikels im Warenkorb eines Kunden zu aendern.
 	 * 
-	 * @param kunde Kunde der die Stückzahl des Warenkorb Artikels ändern will
-	 * @param warenkorbArtikelnummer Warenkorb Artikelnummer des Warenkorb Artikels dessen Stückzahl zu ändern ist
-	 * @param neueStueckzahl NeueStückzahl des Warenkorb Artikels
+	 * @param kunde Kunde der die Stueckzahl des Warenkorb Artikels aendern will
+	 * @param warenkorbArtikelnummer Warenkorb Artikelnummer des Warenkorb Artikels dessen Stueckzahl zu aendern ist
+	 * @param neueStueckzahl NeueStueckzahl des Warenkorb Artikels
 	 * @throws ArtikelBestandIstZuKleinException
 	 * @throws ArtikelExistiertNichtException
 	 * @throws ArtikelBestandIstKeineVielfacheDerPackungsgroesseException
@@ -270,7 +270,7 @@ public interface ShopInterface {
 	
 	/**
 	 * Methode zum Kaufen von Artikeln anhand eines Kunden. Es wird eine Rechnung
-	 * zurückgegeben.
+	 * zurueckgegeben.
 	 * 
 	 * @param kunde Kunde der die einzelnen Artikel, die sich in seinem Warenkorb befinden, kaufen will
 	 * @return Rechnung
@@ -309,7 +309,7 @@ public interface ShopInterface {
 	
 	/**
 	 * Diese Methode gibt ein Integer Array von 30 Zahlen zurueck, die die Bestaende der letzten 30 Tage
-	 * des Artikels mit der angegebenen Artikelnummer repräsentieren.
+	 * des Artikels mit der angegebenen Artikelnummer repraesentieren.
 	 * @param artikelnummer
 	 * @return Die Bestaende der letzten 30 Tage
 	 * @throws IOException
